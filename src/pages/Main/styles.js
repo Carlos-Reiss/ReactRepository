@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const rotate = keyframes`
   from {
@@ -24,11 +24,17 @@ export const Container = styled.h1`
     justify-content: center;
   }
 `;
-export const Form = styled.form`
+export const Form = styled.form.attrs(props => ({
+  error: props.error,
+}))`
   margin-top: 30px;
   display: flex;
   flex-direction: row;
-
+  &[error] {
+    input {
+      border: 1px solid red;
+    }
+  }
   input {
     flex: 1;
     border: 1px solid #eee;
@@ -38,19 +44,49 @@ export const Form = styled.form`
   }
 `;
 
-export const SubmitButton = styled.button.attrs({
+export const SubmitButton = styled.button.attrs(props => ({
   type: 'submit',
-})`
+  disabled: props.loading,
+}))`
   background: #7159c1;
   border: 0;
   padding: 0 15px;
   margin-left: 10px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  #icon {
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
+  ${props =>
+    props.loading &&
+    css`
+      svg {
+        animation: ${rotate} 1.2s linear infinite;
+      }
+    `}
+`;
+
+export const List = styled.ul`
+  list-style: none;
+  margin-top: 30px;
+  li {
+    font-size: 14px;
+    padding: 15px 0;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    animation: ${rotate} 3s backwards infinite;
+
+    & + li {
+      border-top: 1px solid #eee;
+    }
+    a {
+      color: #7159c1;
+      text-decoration: none;
+    }
   }
 `;

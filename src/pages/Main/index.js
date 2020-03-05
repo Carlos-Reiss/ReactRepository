@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { Container, Form, SubmitButton, List } from './styles';
+import { Form, SubmitButton, List } from './styles';
+import Container from '../../components/container';
 import api from '../../services/api';
 
 export default class Main extends Component {
@@ -9,7 +10,7 @@ export default class Main extends Component {
     newRepo: '',
     repositories: [],
     loading: false,
-    error: null,
+    error: false,
   };
 
   // carregar dados LocalStorage
@@ -30,7 +31,7 @@ export default class Main extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ newRepo: e.target.value, error: null });
+    this.setState({ newRepo: e.target.value });
   };
 
   handleSubmit = async e => {
@@ -39,9 +40,19 @@ export default class Main extends Component {
 
     const { newRepo, repositories } = this.state;
     try {
-      if (newRepo == '') throw 'não pode ficar com campo vazio';
-      const findRepo = repositories.find(repo => repo.name == newRepo);
-      if (findRepo) throw 'repositorio duplicado';
+      if (newRepo === '') {
+        throw new Error('não pode ficar com campo vazio');
+      }
+
+      const findRepo = repositories.find(repo => {
+        if (repo.name.toLowerCase() === newRepo.toLowerCase()) {
+          return true;
+        }
+      });
+
+      if (findRepo) {
+        throw new Error('repositorio duplicado');
+      }
       const response = await api.get(`/repos/${newRepo}`);
       const data = {
         name: response.data.full_name,
@@ -51,8 +62,9 @@ export default class Main extends Component {
         newRepo: '',
         loading: false,
       });
-    } catch (error) {
+    } catch (Error) {
       this.setState({ error: true });
+      console.log(Error.toString());
     } finally {
       this.setState({ loading: false });
     }

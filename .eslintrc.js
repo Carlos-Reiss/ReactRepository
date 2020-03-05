@@ -4,6 +4,7 @@ module.exports = {
     es6: true,
   },
   extends: [
+    'plugin:react/recommended',
     'airbnb',
     'prettier',
     'prettier/react'
@@ -33,6 +34,6 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     'react/state-in-constructor': 'off',
-    'eeqqee': 'off'
+    'react/static-property-placement':'off'
   },
 };

@@ -9,30 +9,15 @@ const rotate = keyframes`
   }
 `;
 
-export const Container = styled.h1`
-  max-width: 800px;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin: 80px auto;
-  h1 {
-    font-size: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-`;
 export const Form = styled.form.attrs(props => ({
-  error: props.error,
+  disabled: props.error,
 }))`
   margin-top: 30px;
   display: flex;
   flex-direction: row;
-  &[error] {
+  &[disabled] {
     input {
-      border: 1px solid red;
+      border: 1.5px solid rgba(255, 0, 0, 0.6);
     }
   }
   input {
@@ -56,7 +41,6 @@ export const SubmitButton = styled.button.attrs(props => ({
   display: flex;
   align-items: center;
   justify-content: center;
-
   &[disabled] {
     cursor: not-allowed;
     opacity: 0.2;

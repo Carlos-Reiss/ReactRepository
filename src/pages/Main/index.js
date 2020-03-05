@@ -9,7 +9,7 @@ export default class Main extends Component {
     newRepo: '',
     repositories: [],
     loading: false,
-    error: null,
+    error: false,
   };
 
   // carregar dados LocalStorage
@@ -30,7 +30,7 @@ export default class Main extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ newRepo: e.target.value, error: null });
+    this.setState({ newRepo: e.target.value });
   };
 
   handleSubmit = async e => {
@@ -39,9 +39,15 @@ export default class Main extends Component {
 
     const { newRepo, repositories } = this.state;
     try {
-      if (newRepo == '') throw 'não pode ficar com campo vazio';
+      if (newRepo == '') {
+        throw new Error('não pode ficar com campo vazio');
+      }
+
       const findRepo = repositories.find(repo => repo.name == newRepo);
-      if (findRepo) throw 'repositorio duplicado';
+
+      if (findRepo) {
+        throw new Error('repositorio duplicado');
+      }
       const response = await api.get(`/repos/${newRepo}`);
       const data = {
         name: response.data.full_name,
@@ -51,7 +57,7 @@ export default class Main extends Component {
         newRepo: '',
         loading: false,
       });
-    } catch (error) {
+    } catch (Error) {
       this.setState({ error: true });
     } finally {
       this.setState({ loading: false });

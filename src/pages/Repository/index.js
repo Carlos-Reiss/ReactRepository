@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaSpinner } from 'react-icons/fa';
+import { FaGithubAlt } from 'react-icons/fa';
 import api from '../../services/api';
 import { Container } from '../Main/styles';
 import {} from './styles';

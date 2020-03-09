@@ -132,6 +132,9 @@ export const FilterList = styled.div`
       padding: 2px;
       border-radius: 8px;
     }
+    :active {
+      color: #000;
+    }
   }
 `;
 
@@ -154,7 +157,9 @@ export const Pages = styled.div`
     background: white;
     :hover {
       border: 1px solid #eee;
-      size: 15;
+    }
+    :active {
+      color: #000;
     }
   }
 `;

@@ -76,7 +76,7 @@ export default class Repository extends Component {
       },
     });
 
-    if (!response.data) return;
+    if (!response.data.length === 0) return;
 
     this.setState({ issues: response.data });
   };

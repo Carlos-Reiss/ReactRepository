@@ -31,5 +31,5 @@ Refinar uma aplicação de busca no repositorio do github utilizando ReactJS.
     $ yarn start
 
 ```
-## Image previues
-<img src="./public/prev.png" height="290" width="532" align="center" >
+## preview of the image
+<img src="./public/prev.png" align="center" height="290" width="532" >

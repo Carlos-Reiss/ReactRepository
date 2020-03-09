@@ -1,6 +1,8 @@
-# React Repositorios do GitHub
-## Desafio 05
-Refinar uma aplicação de busca no repositorio do github utilizando ReactJS.
+# ReactRepository GitHub
+
+## Challenge 05
+
+improve a search application in the github repository for Issues using ReactJS.
 
 ## Technology Used
 
@@ -31,5 +33,5 @@ Refinar uma aplicação de busca no repositorio do github utilizando ReactJS.
     $ yarn start
 
 ```
-## preview of the image
+## Preview of the image
 <img src="./public/prev.png" align="center" height="290" width="532" >

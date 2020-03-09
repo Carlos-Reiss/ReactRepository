@@ -1,13 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
-const rotate = keyframes`
-  to{
-    transform: rotate(0deg);
-  }
-  from{
-    transform: rotate(360deg);
-  }
-`;
+import styled from 'styled-components';
 
 const Container = styled.h1`
   max-width: 900px;
@@ -22,13 +13,6 @@ const Container = styled.h1`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  button:hover {
-    cursor: pointer;
-    transition: 1s all;
-    padding: 15px;
-    border-radius: 50%;
-    animation: ${rotate} 1s alternate;
   }
   .backhome:hover {
     width: 32px;

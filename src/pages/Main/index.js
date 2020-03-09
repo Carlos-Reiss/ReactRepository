@@ -44,11 +44,9 @@ export default class Main extends Component {
         throw new Error('não pode ficar com campo vazio');
       }
 
-      const findRepo = repositories.find(repo => {
-        if (repo.name.toLowerCase() === newRepo.toLowerCase()) {
-          return true;
-        }
-      });
+      const findRepo = repositories.find(
+        repo => repo.name.toLowerCase() === newRepo.toLowerCase()
+      );
 
       if (findRepo) {
         throw new Error('repositorio duplicado');

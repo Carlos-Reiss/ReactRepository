@@ -114,6 +114,47 @@ export const IssuesList = styled.div`
   }
 `;
 export const FilterList = styled.div`
+  div {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  button {
+    margin: 5px;
+    border: 1px solid #eee;
+    color: #7159c1;
+    background: none;
+    padding: 3px;
+    border-radius: 8px;
+    :hover {
+      transition: 200ms all;
+      font-weight: bolder;
+      padding: 2px;
+      border-radius: 8px;
+    }
+  }
+`;
+
+export const Pages = styled.div`
   display: flex;
-  margin: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: normal;
+
+  button {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border: none;
+    color: #7159c1;
+    background: white;
+    :hover {
+      border: 1px solid #eee;
+      size: 15;
+    }
+  }
 `;

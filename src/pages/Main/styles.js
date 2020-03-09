@@ -9,6 +9,28 @@ const rotate = keyframes`
   }
 `;
 
+export const Container = styled.h1`
+  max-width: 700px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  margin: 80px auto;
+  h1 {
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  button:hover {
+    cursor: pointer;
+    transition: 1s all;
+    padding: 15px;
+    border-radius: 50%;
+    animation: ${rotate} 2s alternate infinite;
+  }
+`;
 export const Form = styled.form.attrs(props => ({
   disabled: props.error,
 }))`
@@ -26,6 +48,13 @@ export const Form = styled.form.attrs(props => ({
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 16px;
+  }
+  button:hover {
+    cursor: pointer;
+    transition: 1s all;
+    padding: 15px;
+    border-radius: 50%;
+    animation: ${rotate} 1s alternate;
   }
 `;
 
